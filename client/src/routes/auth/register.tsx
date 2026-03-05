@@ -31,11 +31,7 @@ function RegisterPage() {
       try {
         setIsLoading(true);
         setError(null);
-        const user = await api.register(
-          values.username,
-          values.email,
-          values.password
-        );
+        const user = await api.register(values.username, values.email, values.password);
         login(user);
         navigate({ to: "/" });
       } catch (err) {
@@ -85,9 +81,7 @@ function RegisterPage() {
                     disabled={isLoading}
                   />
                   {field.state.meta.errors && (
-                    <p className="text-xs text-destructive">
-                      {field.state.meta.errors.join(", ")}
-                    </p>
+                    <p className="text-xs text-destructive">{field.state.meta.errors.join(", ")}</p>
                   )}
                 </div>
               )}
@@ -117,9 +111,7 @@ function RegisterPage() {
                     disabled={isLoading}
                   />
                   {field.state.meta.errors && (
-                    <p className="text-xs text-destructive">
-                      {field.state.meta.errors.join(", ")}
-                    </p>
+                    <p className="text-xs text-destructive">{field.state.meta.errors.join(", ")}</p>
                   )}
                 </div>
               )}
@@ -149,9 +141,7 @@ function RegisterPage() {
                     disabled={isLoading}
                   />
                   {field.state.meta.errors && (
-                    <p className="text-xs text-destructive">
-                      {field.state.meta.errors.join(", ")}
-                    </p>
+                    <p className="text-xs text-destructive">{field.state.meta.errors.join(", ")}</p>
                   )}
                 </div>
               )}
@@ -182,9 +172,7 @@ function RegisterPage() {
                     disabled={isLoading}
                   />
                   {field.state.meta.errors && (
-                    <p className="text-xs text-destructive">
-                      {field.state.meta.errors.join(", ")}
-                    </p>
+                    <p className="text-xs text-destructive">{field.state.meta.errors.join(", ")}</p>
                   )}
                 </div>
               )}
@@ -213,6 +201,6 @@ function RegisterPage() {
   );
 }
 
-export const Route = createFileRoute('/auth/register')({
+export const Route = createFileRoute("/auth/register")({
   component: RegisterPage,
-})
+});

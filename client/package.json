@@ -8,8 +8,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
-    "format": "prettier",
-    "check": "prettier --write . && eslint --fix"
+    "format": "oxfmt"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
@@ -45,7 +44,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
     "jsdom": "^27.0.0",
-    "prettier": "^3.5.3",
+    "oxfmt": "^0.36.0",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
     "vitest": "^3.0.5",

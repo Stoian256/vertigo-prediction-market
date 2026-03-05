@@ -1,11 +1,6 @@
 import { Elysia, t } from "elysia";
 import { authMiddleware } from "../middleware/auth.middleware";
-import {
-  handleCreateMarket,
-  handleListMarkets,
-  handleGetMarket,
-  handlePlaceBet,
-} from "./handlers";
+import { handleCreateMarket, handleListMarkets, handleGetMarket, handlePlaceBet } from "./handlers";
 
 export const marketRoutes = new Elysia({ prefix: "/api/markets" })
   .use(authMiddleware)
@@ -45,5 +40,5 @@ export const marketRoutes = new Elysia({ prefix: "/api/markets" })
             outcomeId: t.Number(),
             amount: t.Number(),
           }),
-        })
+        }),
   );

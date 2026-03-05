@@ -10,7 +10,7 @@ export const app = new Elysia()
     cors({
       origin: "*",
       allowedHeaders: ["Content-Type", "Authorization"],
-    })
+    }),
   )
   .onError(({ code, set }) => {
     if (code === "NOT_FOUND") {

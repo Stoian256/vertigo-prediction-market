@@ -53,23 +53,17 @@
       "indexes": {
         "bets_user_id_idx": {
           "name": "bets_user_id_idx",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         },
         "bets_market_id_idx": {
           "name": "bets_market_id_idx",
-          "columns": [
-            "market_id"
-          ],
+          "columns": ["market_id"],
           "isUnique": false
         },
         "bets_outcome_id_idx": {
           "name": "bets_outcome_id_idx",
-          "columns": [
-            "outcome_id"
-          ],
+          "columns": ["outcome_id"],
           "isUnique": false
         }
       },
@@ -78,12 +72,8 @@
           "name": "bets_user_id_users_id_fk",
           "tableFrom": "bets",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -91,12 +81,8 @@
           "name": "bets_market_id_markets_id_fk",
           "tableFrom": "bets",
           "tableTo": "markets",
-          "columnsFrom": [
-            "market_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["market_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -104,12 +90,8 @@
           "name": "bets_outcome_id_market_outcomes_id_fk",
           "tableFrom": "bets",
           "tableTo": "market_outcomes",
-          "columnsFrom": [
-            "outcome_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["outcome_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -153,9 +135,7 @@
       "indexes": {
         "market_outcomes_market_id_idx": {
           "name": "market_outcomes_market_id_idx",
-          "columns": [
-            "market_id"
-          ],
+          "columns": ["market_id"],
           "isUnique": false
         }
       },
@@ -164,12 +144,8 @@
           "name": "market_outcomes_market_id_markets_id_fk",
           "tableFrom": "market_outcomes",
           "tableTo": "markets",
-          "columnsFrom": [
-            "market_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["market_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -235,16 +211,12 @@
       "indexes": {
         "markets_created_by_idx": {
           "name": "markets_created_by_idx",
-          "columns": [
-            "created_by"
-          ],
+          "columns": ["created_by"],
           "isUnique": false
         },
         "markets_status_idx": {
           "name": "markets_status_idx",
-          "columns": [
-            "status"
-          ],
+          "columns": ["status"],
           "isUnique": false
         }
       },
@@ -253,12 +225,8 @@
           "name": "markets_created_by_users_id_fk",
           "tableFrom": "markets",
           "tableTo": "users",
-          "columnsFrom": [
-            "created_by"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["created_by"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -316,30 +284,22 @@
       "indexes": {
         "users_username_unique": {
           "name": "users_username_unique",
-          "columns": [
-            "username"
-          ],
+          "columns": ["username"],
           "isUnique": true
         },
         "users_email_unique": {
           "name": "users_email_unique",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         },
         "users_username_idx": {
           "name": "users_username_idx",
-          "columns": [
-            "username"
-          ],
+          "columns": ["username"],
           "isUnique": true
         },
         "users_email_idx": {
           "name": "users_email_idx",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         }
       },

@@ -9,7 +9,7 @@ export interface ValidationError {
 export function validateRegistration(
   username: string,
   email: string,
-  password: string
+  password: string,
 ): ValidationError[] {
   const errors: ValidationError[] = [];
 
@@ -40,10 +40,7 @@ export function validateRegistration(
 /**
  * Validate login input
  */
-export function validateLogin(
-  email: string,
-  password: string
-): ValidationError[] {
+export function validateLogin(email: string, password: string): ValidationError[] {
   const errors: ValidationError[] = [];
 
   if (!email || !isValidEmail(email)) {
@@ -69,7 +66,7 @@ export function validateLogin(
 export function validateMarketCreation(
   title: string,
   description: string,
-  outcomes: string[]
+  outcomes: string[],
 ): ValidationError[] {
   const errors: ValidationError[] = [];
 

@@ -48,10 +48,7 @@ class ApiClient {
     return { Authorization: `Bearer ${token}` };
   }
 
-  private async request(
-    endpoint: string,
-    options: RequestInit = {}
-  ): Promise<any> {
+  private async request(endpoint: string, options: RequestInit = {}): Promise<any> {
     const url = `${this.baseUrl}${endpoint}`;
     const headers = {
       "Content-Type": "application/json",
@@ -69,9 +66,7 @@ class ApiClient {
     if (!response.ok) {
       // If there are validation errors, throw them
       if (data.errors && Array.isArray(data.errors)) {
-        const errorMessage = data.errors
-          .map((e: any) => `${e.field}: ${e.message}`)
-          .join(", ");
+        const errorMessage = data.errors.map((e: any) => `${e.field}: ${e.message}`).join(", ");
         throw new Error(errorMessage);
       }
       throw new Error(data.error || `API Error: ${response.status}`);
@@ -81,11 +76,7 @@ class ApiClient {
   }
 
   // Auth endpoints
-  async register(
-    username: string,
-    email: string,
-    password: string
-  ): Promise<User> {
+  async register(username: string, email: string, password: string): Promise<User> {
     return this.request("/api/auth/register", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
@@ -108,11 +99,7 @@ class ApiClient {
     return this.request(`/api/markets/${id}`);
   }
 
-  async createMarket(
-    title: string,
-    description: string,
-    outcomes: string[]
-  ): Promise<Market> {
+  async createMarket(title: string, description: string, outcomes: string[]): Promise<Market> {
     return this.request("/api/markets", {
       method: "POST",
       body: JSON.stringify({ title, description, outcomes }),
@@ -120,11 +107,7 @@ class ApiClient {
   }
 
   // Bets endpoints
-  async placeBet(
-    marketId: number,
-    outcomeId: number,
-    amount: number
-  ): Promise<Bet> {
+  async placeBet(marketId: number, outcomeId: number, amount: number): Promise<Bet> {
     return this.request(`/api/markets/${marketId}/bets`, {
       method: "POST",
       body: JSON.stringify({ outcomeId, amount }),

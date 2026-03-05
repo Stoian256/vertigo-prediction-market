@@ -11,14 +11,14 @@ function generatePassword(length: number = 12): string {
   const lowercase = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
   const symbols = "!@#$%^&*";
-  
+
   const allChars = uppercase + lowercase + numbers + symbols;
   let password = "";
-  
+
   for (let i = 0; i < length; i++) {
     password += allChars.charAt(Math.floor(Math.random() * allChars.length));
   }
-  
+
   return password;
 }
 
@@ -27,7 +27,7 @@ async function resetPassword(emailOrId: string) {
     // Find user by email or ID
     let user;
     const isNumber = /^\d+$/.test(emailOrId);
-    
+
     if (isNumber) {
       user = await db.query.usersTable.findFirst({
         where: eq(usersTable.id, parseInt(emailOrId)),
@@ -48,10 +48,7 @@ async function resetPassword(emailOrId: string) {
     const passwordHash = await hashPassword(newPassword);
 
     // Update user
-    await db
-      .update(usersTable)
-      .set({ passwordHash })
-      .where(eq(usersTable.id, user.id));
+    await db.update(usersTable).set({ passwordHash }).where(eq(usersTable.id, user.id));
 
     console.log(`✅ Password reset for user: ${user.username} (${user.email})`);
     console.log(`🔐 New password: ${newPassword}`);

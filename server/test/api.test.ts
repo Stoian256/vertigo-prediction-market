@@ -27,7 +27,7 @@ describe("Auth", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
-      })
+      }),
     );
 
     expect(res.status).toBe(201);
@@ -47,7 +47,7 @@ describe("Auth", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
-      })
+      }),
     );
 
     expect(res.status).toBe(409);
@@ -59,7 +59,7 @@ describe("Auth", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: "ab", email: "bad", password: "12" }),
-      })
+      }),
     );
 
     expect(res.status).toBe(400);
@@ -73,7 +73,7 @@ describe("Auth", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-      })
+      }),
     );
 
     expect(res.status).toBe(200);
@@ -88,7 +88,7 @@ describe("Auth", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: "nobody@example.com", password: "wrong" }),
-      })
+      }),
     );
 
     expect(res.status).toBe(401);
@@ -105,7 +105,7 @@ describe("Markets", () => {
           title: "Test market",
           outcomes: ["Yes", "No"],
         }),
-      })
+      }),
     );
 
     expect(res.status).toBe(401);
@@ -124,7 +124,7 @@ describe("Markets", () => {
           description: "Weather prediction",
           outcomes: ["Yes", "No"],
         }),
-      })
+      }),
     );
 
     expect(res.status).toBe(201);
@@ -146,7 +146,7 @@ describe("Markets", () => {
           Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({ title: "Hi", outcomes: ["Only one"] }),
-      })
+      }),
     );
 
     expect(res.status).toBe(400);
@@ -167,9 +167,7 @@ describe("Markets", () => {
   });
 
   it("GET /api/markets/:id — returns market detail", async () => {
-    const res = await app.handle(
-      new Request(`${BASE}/api/markets/${marketId}`)
-    );
+    const res = await app.handle(new Request(`${BASE}/api/markets/${marketId}`));
 
     expect(res.status).toBe(200);
     const data = await res.json();
@@ -180,9 +178,7 @@ describe("Markets", () => {
   });
 
   it("GET /api/markets/:id — 404 for nonexistent market", async () => {
-    const res = await app.handle(
-      new Request(`${BASE}/api/markets/99999`)
-    );
+    const res = await app.handle(new Request(`${BASE}/api/markets/99999`));
 
     expect(res.status).toBe(404);
   });
@@ -195,7 +191,7 @@ describe("Bets", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ outcomeId, amount: 100 }),
-      })
+      }),
     );
 
     expect(res.status).toBe(401);
@@ -210,7 +206,7 @@ describe("Bets", () => {
           Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({ outcomeId, amount: 50 }),
-      })
+      }),
     );
 
     expect(res.status).toBe(201);
@@ -231,7 +227,7 @@ describe("Bets", () => {
           Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({ outcomeId, amount: -10 }),
-      })
+      }),
     );
 
     expect(res.status).toBe(400);

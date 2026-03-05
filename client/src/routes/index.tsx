@@ -36,20 +36,11 @@ function DashboardPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">
-            Prediction Markets
-          </h1>
-          <p className="text-gray-600 mb-8 text-lg">
-            Create and participate in prediction markets
-          </p>
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">Prediction Markets</h1>
+          <p className="text-gray-600 mb-8 text-lg">Create and participate in prediction markets</p>
           <div className="space-x-4">
-            <Button onClick={() => navigate({ to: "/auth/login" })}>
-              Login
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => navigate({ to: "/auth/register" })}
-            >
+            <Button onClick={() => navigate({ to: "/auth/login" })}>Login</Button>
+            <Button variant="outline" onClick={() => navigate({ to: "/auth/register" })}>
               Sign Up
             </Button>
           </div>
@@ -65,14 +56,10 @@ function DashboardPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-4xl font-bold text-gray-900">Markets</h1>
-            <p className="text-gray-600 mt-2">
-              Welcome back, {user?.username}!
-            </p>
+            <p className="text-gray-600 mt-2">Welcome back, {user?.username}!</p>
           </div>
           <div className="space-x-4">
-            <Button onClick={() => navigate({ to: "/markets/new" })}>
-              Create Market
-            </Button>
+            <Button onClick={() => navigate({ to: "/markets/new" })}>Create Market</Button>
           </div>
         </div>
 
@@ -90,11 +77,7 @@ function DashboardPage() {
           >
             Resolved Markets
           </Button>
-          <Button
-            variant="outline"
-            onClick={loadMarkets}
-            disabled={isLoading}
-          >
+          <Button variant="outline" onClick={loadMarkets} disabled={isLoading}>
             {isLoading ? "Refreshing..." : "Refresh"}
           </Button>
         </div>
@@ -118,8 +101,7 @@ function DashboardPage() {
             <CardContent className="flex items-center justify-center py-12">
               <div className="text-center">
                 <p className="text-muted-foreground text-lg">
-                  No {status} markets found.{" "}
-                  {status === "active" && "Create one to get started!"}
+                  No {status} markets found. {status === "active" && "Create one to get started!"}
                 </p>
               </div>
             </CardContent>
@@ -136,6 +118,6 @@ function DashboardPage() {
   );
 }
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: DashboardPage,
-})
+});

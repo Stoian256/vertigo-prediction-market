@@ -144,9 +144,7 @@ async function seedDatabase() {
       betCount++;
     }
 
-    console.log(
-      `  ✓ Created ${market.outcomes.length} bets on "${market.title}"`
-    );
+    console.log(`  ✓ Created ${market.outcomes.length} bets on "${market.title}"`);
   }
 
   console.log("\n" + "=".repeat(60));
@@ -169,7 +167,9 @@ async function seedDatabase() {
   }
 
   console.log("\n" + "=".repeat(60));
-  console.log("\n✨ Database is ready! Start the app and login with any of the above credentials.\n");
+  console.log(
+    "\n✨ Database is ready! Start the app and login with any of the above credentials.\n",
+  );
 }
 
 async function main() {

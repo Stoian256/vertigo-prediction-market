@@ -12,10 +12,7 @@ export async function hashPassword(password: string): Promise<string> {
 /**
  * Verify a password against a hash
  */
-export async function verifyPassword(
-  password: string,
-  hash: string
-): Promise<boolean> {
+export async function verifyPassword(password: string, hash: string): Promise<boolean> {
   return await Bun.password.verify(password, hash);
 }
 
@@ -34,9 +31,7 @@ export function createSessionToken(userId: number): string {
 /**
  * Parse and validate a session token
  */
-export function parseSessionToken(
-  token: string
-): { userId: number; iat: number } | null {
+export function parseSessionToken(token: string): { userId: number; iat: number } | null {
   try {
     const decoded = Buffer.from(token, "base64").toString("utf-8");
     const payload = JSON.parse(decoded);
@@ -50,7 +45,7 @@ export function parseSessionToken(
  * Get user from token
  */
 export async function getUserFromToken(
-  token: string
+  token: string,
 ): Promise<typeof usersTable.$inferSelect | null> {
   const payload = parseSessionToken(token);
   if (!payload) return null;

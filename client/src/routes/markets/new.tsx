@@ -28,7 +28,7 @@ function CreateMarketPage() {
     },
     onSubmit: async (formData) => {
       const values = formData.value;
-      
+
       if (!values.title.trim()) {
         setError("Market title is required");
         return;
@@ -43,11 +43,7 @@ function CreateMarketPage() {
       try {
         setIsLoading(true);
         setError(null);
-        const market = await api.createMarket(
-          values.title,
-          values.description,
-          validOutcomes
-        );
+        const market = await api.createMarket(values.title, values.description, validOutcomes);
         navigate({ to: `/markets/${market.id}` });
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to create market");
@@ -173,6 +169,6 @@ function CreateMarketPage() {
   );
 }
 
-export const Route = createFileRoute('/markets/new')({
+export const Route = createFileRoute("/markets/new")({
   component: CreateMarketPage,
-})
+});

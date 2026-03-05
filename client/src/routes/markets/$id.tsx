@@ -15,9 +15,7 @@ function MarketDetailPage() {
   const [market, setMarket] = useState<Market | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedOutcomeId, setSelectedOutcomeId] = useState<number | null>(
-    null
-  );
+  const [selectedOutcomeId, setSelectedOutcomeId] = useState<number | null>(null);
   const [betAmount, setBetAmount] = useState("");
   const [isBetting, setIsBetting] = useState(false);
 
@@ -33,9 +31,7 @@ function MarketDetailPage() {
           setSelectedOutcomeId(data.outcomes[0].id);
         }
       } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Failed to load market details"
-        );
+        setError(err instanceof Error ? err.message : "Failed to load market details");
       } finally {
         setIsLoading(false);
       }
@@ -71,9 +67,7 @@ function MarketDetailPage() {
         <Card>
           <CardContent className="flex flex-col items-center justify-center py-12 gap-4">
             <p className="text-muted-foreground">Please log in to view this market</p>
-            <Button onClick={() => navigate({ to: "/auth/login" })}>
-              Login
-            </Button>
+            <Button onClick={() => navigate({ to: "/auth/login" })}>Login</Button>
           </CardContent>
         </Card>
       </div>
@@ -115,9 +109,7 @@ function MarketDetailPage() {
               <div className="flex-1">
                 <CardTitle className="text-4xl">{market.title}</CardTitle>
                 {market.description && (
-                  <CardDescription className="text-lg mt-2">
-                    {market.description}
-                  </CardDescription>
+                  <CardDescription className="text-lg mt-2">{market.description}</CardDescription>
                 )}
               </div>
               <Badge variant={market.status === "active" ? "default" : "secondary"}>
@@ -143,9 +135,7 @@ function MarketDetailPage() {
                       ? "border-primary bg-primary/5"
                       : "border-secondary bg-secondary/5 hover:border-primary/50"
                   }`}
-                  onClick={() =>
-                    market.status === "active" && setSelectedOutcomeId(outcome.id)
-                  }
+                  onClick={() => market.status === "active" && setSelectedOutcomeId(outcome.id)}
                 >
                   <div className="flex justify-between items-center">
                     <div className="flex-1">
@@ -155,9 +145,7 @@ function MarketDetailPage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-3xl font-bold text-primary">
-                        {outcome.odds}%
-                      </p>
+                      <p className="text-3xl font-bold text-primary">{outcome.odds}%</p>
                       <p className="text-xs text-muted-foreground">odds</p>
                     </div>
                   </div>
@@ -183,8 +171,8 @@ function MarketDetailPage() {
                   <div className="space-y-2">
                     <Label>Selected Outcome</Label>
                     <div className="p-3 bg-white border border-secondary rounded-md">
-                      {market.outcomes.find((o) => o.id === selectedOutcomeId)
-                        ?.title || "None selected"}
+                      {market.outcomes.find((o) => o.id === selectedOutcomeId)?.title ||
+                        "None selected"}
                     </div>
                   </div>
 
@@ -227,6 +215,6 @@ function MarketDetailPage() {
   );
 }
 
-export const Route = createFileRoute('/markets/$id')({
+export const Route = createFileRoute("/markets/$id")({
   component: MarketDetailPage,
-})
+});

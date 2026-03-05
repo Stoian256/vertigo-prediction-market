@@ -9,8 +9,7 @@ bun test                          # Run vitest (single run)
 bun test -- --watch               # Run vitest in watch mode
 bun test -- path/to/test.spec.ts  # Run single test file
 bun lint                          # Run ESLint
-bun format                        # Run Prettier check
-bun check                         # Format + lint fix
+bun format                        # Run code formatter
 ```
 
 ## Architecture
@@ -22,6 +21,7 @@ bun check                         # Format + lint fix
 **State/Forms**: TanStack Form, TanStack DevTools available
 
 **Structure**:
+
 - `src/routes/` - File-based routing
 - `src/components/` - React components (ui/ contains shadcn/ui)
 - `src/lib/` - Utilities and helpers

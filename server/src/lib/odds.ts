@@ -2,10 +2,7 @@
  * Calculate implied odds for an outcome based on total bets
  * Formula: outcome_bets / total_bets
  */
-export function calculateOutcomeOdds(
-  outcomeBets: number,
-  totalBets: number
-): number {
+export function calculateOutcomeOdds(outcomeBets: number, totalBets: number): number {
   if (totalBets === 0) return 0;
   return Number(((outcomeBets / totalBets) * 100).toFixed(2));
 }
@@ -18,7 +15,7 @@ export function calculateOutcomeOdds(
 export function calculateUserWinnings(
   betAmount: number,
   winningOutcomeTotalBets: number,
-  totalMarketBets: number
+  totalMarketBets: number,
 ): number {
   if (winningOutcomeTotalBets === 0) return 0;
   const multiplier = totalMarketBets / winningOutcomeTotalBets;
@@ -35,7 +32,7 @@ export function calculateTotalWinnings(
     resolved_outcome_id: number | null;
   }>,
   betsPerOutcome: Map<number, number>,
-  totalBetsPerMarket: Map<string, number>
+  totalBetsPerMarket: Map<string, number>,
 ): number {
   return userBets.reduce((total, bet) => {
     if (bet.resolved_outcome_id === null) return total;

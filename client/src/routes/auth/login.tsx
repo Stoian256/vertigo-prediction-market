@@ -64,9 +64,7 @@ function LoginPage() {
                     disabled={isLoading}
                   />
                   {field.state.meta.errors && (
-                    <p className="text-xs text-destructive">
-                      {field.state.meta.errors.join(", ")}
-                    </p>
+                    <p className="text-xs text-destructive">{field.state.meta.errors.join(", ")}</p>
                   )}
                 </div>
               )}
@@ -86,9 +84,7 @@ function LoginPage() {
                     disabled={isLoading}
                   />
                   {field.state.meta.errors && (
-                    <p className="text-xs text-destructive">
-                      {field.state.meta.errors.join(", ")}
-                    </p>
+                    <p className="text-xs text-destructive">{field.state.meta.errors.join(", ")}</p>
                   )}
                 </div>
               )}
@@ -117,6 +113,6 @@ function LoginPage() {
   );
 }
 
-export const Route = createFileRoute('/auth/login')({
+export const Route = createFileRoute("/auth/login")({
   component: LoginPage,
-})
+});
