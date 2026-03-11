@@ -10,7 +10,7 @@ services:
       JWT_SECRET: 7bc15c2760b14b515bc33d4eb8dfbbf6
       SEED_DATABASE: "true"
     ports:
-      - "4001:4001"
+      - "4005:4001"
     volumes:
       - server_data:/app/data
 
@@ -21,9 +21,9 @@ services:
     depends_on:
       - server
     environment:
-      VITE_API_URL: http://localhost:4001
+      VITE_API_URL: http://localhost:4005
     ports:
-      - "3000:3000"
+      - "3005:3000"
 
 volumes:
   server_data:
