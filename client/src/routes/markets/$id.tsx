@@ -379,7 +379,7 @@ function MarketDetailPage() {
                     <Card className="border-2 border-rose-200 bg-rose-50/50 shadow-sm">
                       <CardHeader className="pb-3 border-b border-rose-100 bg-rose-50">
                         <CardTitle className="text-rose-800 text-sm font-bold flex items-center gap-2 uppercase tracking-wider">
-                          👑 Admin Terminal
+                           Admin Terminal
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="p-4 space-y-4 pt-4">
@@ -407,7 +407,7 @@ function MarketDetailPage() {
                               disabled={isResolving}
                               onClick={handleArchive}
                           >
-                            ⚠️ ARCHIVE & REFUND
+                             ARCHIVE & REFUND
                           </Button>
                         </div>
                       </CardContent>
