@@ -17,14 +17,24 @@ export interface MarketOutcome {
   odds: number;
   totalBets: number;
 }
+// Add this new interface for the paginated response
+export interface PaginatedMarkets {
+  data: Market[];
+  pagination: {
+    total: number;
+    page: number;
+    totalPages: number;
+  };
+}
 
 export interface User {
   id: number;
   username: string;
   email: string;
   token: string;
+  balance: number;
+  role: "user" | "admin";
 }
-
 export interface Bet {
   id: number;
   userId: number;
@@ -32,6 +42,38 @@ export interface Bet {
   outcomeId: number;
   amount: number;
   createdAt: string;
+}
+
+export interface MyBet {
+  id: number;
+  amount: number;
+  createdAt: string;
+  market: {
+    id: number;
+    title: string;
+    status: string;
+  };
+  outcome: {
+    id: number;
+    title: string;
+  };
+  odds: number;
+  won: boolean;
+}
+
+export interface LeaderboardEntry {
+  id: number;
+  username: string;
+  totalWinnings: number;
+}
+
+export interface PaginatedBets {
+  data: MyBet[];
+  pagination: {
+    total: number;
+    page: number;
+    totalPages: number;
+  };
 }
 
 // API Client
@@ -91,8 +133,12 @@ class ApiClient {
   }
 
   // Markets endpoints
-  async listMarkets(status: "active" | "resolved" = "active"): Promise<Market[]> {
-    return this.request(`/api/markets?status=${status}`);
+  async listMarkets(
+      status: "active" | "resolved" = "active",
+      page: number = 1,
+      sortBy: string = "newest"
+  ): Promise<PaginatedMarkets> { // <--- Changed return type here
+    return this.request(`/api/markets?status=${status}&page=${page}&sortBy=${sortBy}`);
   }
 
   async getMarket(id: number): Promise<Market> {
@@ -106,6 +152,14 @@ class ApiClient {
     });
   }
 
+  async getMyBets(status: "active" | "resolved", page: number = 1): Promise<PaginatedBets> {
+    return this.request(`/api/markets/my-bets?status=${status}&page=${page}`);
+  }
+
+  async getLeaderboard(): Promise<LeaderboardEntry[]> {
+    return this.request("/api/markets/leaderboard");
+  }
+
   // Bets endpoints
   async placeBet(marketId: number, outcomeId: number, amount: number): Promise<Bet> {
     return this.request(`/api/markets/${marketId}/bets`, {
@@ -113,6 +167,27 @@ class ApiClient {
       body: JSON.stringify({ outcomeId, amount }),
     });
   }
+
+  // În client/src/lib/api.ts
+  async resolveMarket(marketId: number, outcomeId: number): Promise<any> {
+    // ASIGURĂ-TE CĂ AI "return" AICI:
+    return this.request(`/api/markets/${marketId}/resolve`, {
+      method: "POST",
+      body: JSON.stringify({ outcomeId }),
+    });
+  }
+  async archiveMarket(marketId: number): Promise<any> {
+    return this.request(`/api/markets/${marketId}/archive`, {
+      method: "POST",
+    });
+  }
+
+  async generateApiKey(): Promise<{ apiKey: string }> {
+    return this.request("/api/auth/generate-api-key", { method: "POST" });
+  }
 }
+
+
+
 
 export const api = new ApiClient(API_BASE_URL);

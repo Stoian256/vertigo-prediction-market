@@ -8,30 +8,30 @@ const PORT = Number(process.env.PORT || 4001);
 const HOST = process.env.HOST || "0.0.0.0";
 
 export const app = new Elysia()
-  .use(
-    cors({
-      origin: "*",
-      allowedHeaders: ["Content-Type", "Authorization"],
-    }),
-  )
-  .use(jwtPlugin)
-  .onError(({ code, set }) => {
-    if (code === "NOT_FOUND") {
-      set.status = 404;
-      return { error: "Not found" };
-    }
-    if (code === "VALIDATION") {
-      set.status = 400;
-      return { error: "Invalid request" };
-    }
-  })
-  .use(authRoutes)
-  .use(marketRoutes);
+    .use(
+        cors({
+            origin: "*",
+            allowedHeaders: ["Content-Type", "Authorization"],
+        })
+    )
+    .use(jwtPlugin)
+    .onError(({ code, set }) => {
+        if (code === "NOT_FOUND") {
+            set.status = 404;
+            return { error: "Not found" };
+        }
+        if (code === "VALIDATION") {
+            set.status = 400;
+            return { error: "Invalid request" };
+        }
+    })
+    .use(authRoutes)
+    .use(marketRoutes);
 
 if (import.meta.main) {
-  app.listen({
-    port: PORT,
-    hostname: HOST,
-  });
-  console.log(`🚀 Server running at http://${HOST}:${PORT}`);
+    app.listen({
+        port: PORT,
+        hostname: HOST,
+    });
+    console.log(`🚀 Server running at http://${HOST}:${PORT}`);
 }
