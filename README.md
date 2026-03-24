@@ -1,5 +1,37 @@
-# Themeisle Internship Test for 2026
+# Themeisle Internship Test for 2026 - Prediction Market App
 
+**Candidate: Silviu Stoian**
+
+This is my submission for the Themeisle Internship Challenge. I have developed a functional prediction market web application where users can create markets, place bets, and track outcomes in real-time.
+---
+
+## 📸 Visual Showcase & Demo
+
+### Main Dashboard
+Live overview of all active markets
+![Dashboard](./submission/dashboard.png)
+
+### 📈 Market Details & Betting
+Visual charts showing bet distribution and a secure betting interface with real-time odds updates.
+![Market Details](./submission/market_details.png)
+
+### 🏆 Leaderboard & User Profile
+Tracking user balances, resolved bets, and overall winnings ranking.
+![Leaderboard](./submission/leaderboard.png)
+![User Profile](./submission/profile.png)
+
+---
+
+## 🚀 Features Implemented
+
+- [x] **Real-Time Updates:** Market odds and totals update without page refresh.
+- [x] **Market Detail Page:** Interactive charts and bet validation logic.
+- [x] **Admin System:** Dedicated role for resolving markets and archiving bets.
+- [x] **Payout Distribution:** Proportional calculation of winnings based on stakes.
+- [x] **User Balance Tracking:** Full lifecycle from initial 1000 balance to wins/losses.
+- [x] **Pagination:** All large lists (Markets, Bets, Leaderboard) are paginated (20/page).
+- [x] **Bonus Task:** API implementation for programmatic betting with API keys.
+      
 ## Introduction
 
 This is the challenge for the Themeisle Internship Test for 2026. The goal of this test is to evaluate your skills in creating a software product.
