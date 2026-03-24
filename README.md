@@ -7,6 +7,11 @@ This is my submission for the Themeisle Internship Challenge. I have developed a
 
 ## 📸 Visual Showcase & Demo
 
+### 📺 Video Demo
+<video src="./submission/28b7f952-7e1c-4426-91fb-659dc5fc18ab.webm" width="800" controls>
+  Your browser does not support the video tag.
+</video>
+
 ### Main Dashboard
 Live overview of all active markets
 ![Dashboard](./submission/dashboard.png)
