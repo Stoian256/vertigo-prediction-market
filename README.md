@@ -10,6 +10,7 @@ This is my submission for the Themeisle Internship Challenge. I have developed a
 ### 📺 Walkthrough Video
 <video src="./submission/28b7f952-7e1c-4426-91fb-659dc5fc18ab.webm" width="100%" controls>
 </video>
+
 ### Main Dashboard
 Live overview of all active markets
 ![Dashboard](./submission/dashboard.png)
