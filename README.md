@@ -8,7 +8,7 @@ This is my submission for the Themeisle Internship Challenge. I have developed a
 ## 📸 Visual Showcase & Demo
 
 ### 📺 Walkthrough Video
-[Watch the demo](./submission/28b7f952-7e1c-4426-91fb-659dc5fc18ab.webm)
+[Watch the demo](https://drive.google.com/drive/folders/1oVDCfRsE_MSaDJ6YdbcCf-BfwT3XVD9a)
 
 ### Main Dashboard
 Live overview of all active markets
